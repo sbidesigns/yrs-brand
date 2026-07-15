@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YRS Brand</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Tokens ── */
+    :root {
+      --bg:       #ffffff;
+      --fg:       #0a0a0a;
+      --muted:    #737373;
+      --serif:    'Times New Roman', 'Georgia', 'Noto Serif', serif;
+      --sans:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+      --dur:      0.35s;
+    }
+
+    /* ── Base ── */
+    html { height: 100dvh; overflow: hidden; }
+
+    body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font: 400 1rem/1 var(--sans);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Brand ── */
+    .brand {
+      text-align: center;
+      user-select: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      animation: reveal 1s var(--ease) both;
+    }
+
+    .brand-logo {
+      font-family: var(--serif);
+      font-size: clamp(7.2rem, 21vw, 13.2rem);
+      position: relative;
+    }
+
+    .brand-logo .reg {
+      font-size: 0.25em;
+      font-weight: 400;
+      position: absolute;
+      top: 0.5em;
+      right: -0.7em;
+      opacity: 0.5;
+    }
+
+    .brand-sub {
+      font-size: clamp(0.31rem, 0.89vw, 0.56rem);
+      text-transform: uppercase;
+      margin-top: -1.2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3.97rem;
+      margin-top: 5rem;
+      padding-bottom: 48px;
+      animation: reveal 1s 0.5s var(--ease) both;
+    }
+
+    nav a {
+      font-size: clamp(0.72rem, 2vw, 1.28rem);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 8px;
+      white-space: nowrap;
+      transition: color var(--dur) ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      inset-inline: 0 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: var(--fg);
+      transition: width var(--dur) var(--ease);
+    }
+
+    nav a:hover { color: var(--fg); }
+    nav a:hover::after { width: calc(100% - 0.4em); }
+
+    /* ── Tablet ── */
+    @media (max-width: 768px) {
+      nav { --gap: 2.65rem; margin-top: 3rem; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      nav { flex-direction: column; align-items: center; gap: 1.98rem; margin-top: 2rem; }
+    }
+
+    /* ── Animation ── */
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand">
+    <div class="brand-logo">YRS<span class="reg">&reg;</span></div>
+    <div class="brand-sub">Brand</div>
+  </div>
+
+  <nav>
+    <a href="#media">Media</a>
+    <a href="#style">Style</a>
+    <a href="#shop">Shop</a>
+    <a href="#connect">Connect</a>
+  </nav>
+
+</body>
+</html>
